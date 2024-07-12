@@ -22,7 +22,7 @@ interface formProps {
 }
 
 export default function Home() {
-  // const { data: session, status } = useSession();
+  const { data: session, status } = useSession();
   // CONST
   const [data, setData] = useState<formProps>({
     email: "",
@@ -31,37 +31,37 @@ export default function Home() {
   const [isLoading, setisLoading] = useState(false);
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (session) {
-  //     redirect("/home");
-  //   }
-  // }, [session]);
+  useEffect(() => {
+    if (session) {
+      redirect("/home");
+    }
+  }, [session]);
 
   // HOOKS
 
   // FUNCTION
   const submitLogin: FormEventHandler<HTMLFormElement> = async (event) => {
-    // try {
-    //   event.preventDefault();
-    //   setisLoading(true);
+    try {
+      event.preventDefault();
+      setisLoading(true);
 
-    //   // Perform login authentication logic here
-    //   const res = await signIn("credentials", {
-    //     redirect: false,
-    //     email: data.email,
-    //     password: data.password,
-    //     callbackUrl: "/home",
-    //   });
-    //   // print error if error
-    //   if (res?.error) {
-    //     toast.error("Invalid credentials");
-    //   } else {
-    //     toast.success("Login success");
-    //     router.refresh();
-    //   }
-    // } catch (error) {}
-    // setisLoading(false);
-    console.log("login gan");
+      // Perform login authentication logic here
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+        callbackUrl: "/home",
+      });
+      // print error if error
+      if (res?.error) {
+        toast.error("Invalid credentials");
+      } else {
+        toast.success("Login success");
+        router.refresh();
+      }
+    } catch (error) {}
+    setisLoading(false);
+    console.log(data);
   };
   return (
     <div className="relative flex flex-col justify-center items-center w-full h-screen bg-primaryBg">

@@ -1,12 +1,16 @@
+"use client"
 import Button from './comp/button';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
 import { FaLock, FaBell, FaArrowUp, FaSignOutAlt } from 'react-icons/fa';
 import { SlArrowRight, SlKey, SlUser, SlBell, SlArrowUpCircle   } from "react-icons/sl";
 import Button2 from './comp/button2';
+import { signOut, useSession } from "next-auth/react"
 
 
 export default function Home() {
+  const { data: session, status } = useSession();
+
   return (
     <div>
       {/* <h1 className="text-4xl font-bold text-center mt-4">Settings</h1> */}
@@ -54,16 +58,16 @@ export default function Home() {
 
 
       </div>
-      <div className="p-2 border border-gray-300 rounded-2xl shadow-md mx-5 my-5 bg-[#FAEFEF]">
-        <Button2
-            icon1={<FaSignOutAlt className=""/>} 
-            title="Logout" 
-            subtitle="" 
-            href="/profile" 
-            icon2={<SlArrowRight />} 
-          /> 
-      </div>
-      
+        <div className="p-2 border border-gray-300 rounded-2xl shadow-md mx-5 my-5 bg-[#FAEFEF]">
+          <Button2
+              onClick={() => signOut()}
+              icon1={<FaSignOutAlt className=""/>} 
+              title="Logout" 
+              subtitle="" 
+              href="/profile" 
+              icon2={<SlArrowRight />} 
+            /> 
+        </div>      
     </div>
   );
 }
