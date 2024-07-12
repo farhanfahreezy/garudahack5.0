@@ -7,10 +7,10 @@ import Link from "next/link";
 import { IoChevronBackCircleOutline } from "react-icons/io5";
 import { BsImage, BsCamera } from "react-icons/bs";
 import { ImAttachment } from "react-icons/im";
+import toast from "react-hot-toast";
 
 export default function Home() {
   const session = useSession();
-  console.log("session", session.data?.user.name);
   return (
     <div className="flex flex-col h-screen w-full">
       {/* TOP */}
@@ -23,6 +23,9 @@ export default function Home() {
 
           <Link
             href={"/post"}
+            onClick={() => {
+              toast.success("Post has been sent!");
+            }}
             className="text-white py-2 px-6 bg-darkPurple2 font-medium rounded-xl"
           >
             Post
@@ -45,11 +48,13 @@ export default function Home() {
       {/* CONTENT */}
       <div className="flex flex-col h-full w-full overflow-y-scroll bg-white p-4">
         <input
+          required
           placeholder="Input title here!"
           className="px-2 py-1 border-b-[2px] outline-none font-bold text-black text-[18px]"
         />
 
         <textarea
+          required
           placeholder="What do you want to ask?"
           className="px-2 py-1 border-b-[2px] outline-none font-medium text-slate-700 h-[200px] resize-none"
         />

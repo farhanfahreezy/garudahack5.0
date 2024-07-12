@@ -7,6 +7,7 @@ export interface HomeCardCommunityProps {
   profilePictureUrl: string;
   postImageUrl?: string;
   title: string;
+  content?: string;
   url: string;
   totalUpvote: number;
   createdDate: Date;
