@@ -4,6 +4,8 @@ import { useState } from "react";
 import useCommunityList from "./hooks/useCommunityList";
 import useInsightList from "./hooks/useInsightList";
 import CommunityCardList from "./components/CommunityCardList";
+import ToggleButton from "@/app/components/ToggleButton";
+import InsightCardList from "./components/InsightCardList";
 
 export default function Home() {
   const [currentTab, setcurrentTab] = useState("community");
@@ -47,7 +49,20 @@ export default function Home() {
           <CommunityCardList homeCardsCommunity={homeCardsCommunity} />
         ) : (
           <>
-            {/* <ExpertHistoryCardList expertHistoryCards={expertHistoryCards} /> */}
+            <div className="flex flex-row all gap-1 w-full overflow-x-scroll my-2">
+              <ToggleButton defaultState={true} label="All" />
+              <ToggleButton label="Newborn Care" />
+              <ToggleButton label="Toddler Development" />
+              <ToggleButton label="Nutrition and Health" />
+              <ToggleButton label="Emotional and Social Skills" />
+              <ToggleButton label="Education and Learning" />
+              <ToggleButton label="Behavior Management" />
+              <ToggleButton label="Special Needs" />
+              <ToggleButton label="Mental Health" />
+              <ToggleButton label="Safety and Well-being" />
+              <ToggleButton label="Work-life Balance" />
+            </div>
+            <InsightCardList homeCardsInsight={homeCardsInsight} />
           </>
         )}
       </div>
