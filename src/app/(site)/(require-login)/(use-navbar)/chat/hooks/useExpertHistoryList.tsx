@@ -4,7 +4,7 @@ export default function useExpertHistoryList() {
   const dataExpert1: ExpertHistoryCardProps = {
     name: "Dr. Ferdinant Sinaga",
     expertise: "Child Psychologist",
-    url: "/chat/1",
+    url: "/detail-chat/1",
     profilePictureUrl: "/expert/sinaga.png",
     consultDate: new Date(currentDate.getTime() - 10 * 24 * 60 * 60 * 1000),
     status: true,
@@ -12,7 +12,7 @@ export default function useExpertHistoryList() {
   const dataExpert2: ExpertHistoryCardProps = {
     name: "Gempita Hampa",
     expertise: "Paham Psychologist",
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/kagem.jpg",
     consultDate: new Date(currentDate.getTime() - 20 * 24 * 60 * 60 * 1000),
     status: true,
@@ -20,7 +20,7 @@ export default function useExpertHistoryList() {
   const dataExpert3: ExpertHistoryCardProps = {
     name: "Sydney Sweeney",
     expertise: "Psychologist",
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/sydney.jpg",
     consultDate: new Date(currentDate.getTime() - 60 * 1000),
     status: false,
@@ -29,7 +29,7 @@ export default function useExpertHistoryList() {
   const dataExpert4: ExpertHistoryCardProps = {
     name: "Homelander",
     expertise: "Supe-psychologist",
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/homelander.jpg",
     consultDate: new Date(currentDate.getTime() - 30 * 24 * 60 * 60 * 1000),
     status: true,
@@ -38,7 +38,7 @@ export default function useExpertHistoryList() {
   const dataExpert5: ExpertHistoryCardProps = {
     name: "Alex Turner",
     expertise: "Child Psychologist",
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/alex.jpg",
     consultDate: new Date(currentDate.getTime() - 60 * 24 * 60 * 60 * 1000),
     status: true,
@@ -47,7 +47,7 @@ export default function useExpertHistoryList() {
   const dataExpert6: ExpertHistoryCardProps = {
     name: "Aubrey Graham",
     expertise: "Child Psychologist",
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/aubrey.jpg",
     consultDate: new Date(currentDate.getTime() - 80 * 24 * 60 * 60 * 1000),
     status: true,

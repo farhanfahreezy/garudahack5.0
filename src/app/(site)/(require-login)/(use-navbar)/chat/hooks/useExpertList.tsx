@@ -4,7 +4,7 @@ export default function useExpertList() {
     expertise: "Child Psychologist",
     rating: 4.9,
     price: 22000,
-    url: "/chat/1",
+    url: "/detail-chat/1",
     profilePictureUrl: "/expert/sinaga.png",
   };
   const dataExpert2: ExpertCardProps = {
@@ -12,7 +12,7 @@ export default function useExpertList() {
     expertise: "Paham Psychologist",
     rating: 4.2,
     price: 65000,
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/kagem.jpg",
   };
   const dataExpert3: ExpertCardProps = {
@@ -20,7 +20,7 @@ export default function useExpertList() {
     expertise: "Psychologist",
     rating: 5,
     price: 9000000,
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/sydney.jpg",
   };
 
@@ -29,7 +29,7 @@ export default function useExpertList() {
     expertise: "Supe-psychologist",
     rating: 5,
     price: 50000,
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/homelander.jpg",
   };
 
@@ -38,7 +38,7 @@ export default function useExpertList() {
     expertise: "Child Psychologist",
     rating: 5,
     price: 42000,
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/alex.jpg",
   };
 
@@ -47,7 +47,7 @@ export default function useExpertList() {
     expertise: "Child Psychologist",
     rating: 2.1,
     price: 700000,
-    url: "/chat/2",
+    url: "/detail-chat/2",
     profilePictureUrl: "/expert/aubrey.jpg",
   };
 
