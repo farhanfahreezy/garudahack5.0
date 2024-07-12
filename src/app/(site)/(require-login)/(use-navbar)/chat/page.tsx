@@ -1,4 +1,6 @@
 "use client";
+import { RiRobot3Line } from "react-icons/ri";
+import { PiRobotDuotone } from "react-icons/pi";
 
 import { useEffect, useState } from "react";
 import { LuSearch } from "react-icons/lu";
@@ -14,7 +16,7 @@ export default function Home() {
   const { expertHistoryCards } = useExpertHistoryList();
 
   return (
-    <div className="flex flex-col items-center justify-start h-full w-full">
+    <div className=" relative flex flex-col items-center justify-start h-full w-full">
       {/* NAVIGATION PART */}
       <div className="flex flex-col w-full">
         <div
@@ -69,6 +71,9 @@ export default function Home() {
           </>
         )}
       </div>
+      <a href="/detail-chat/bot" className="h-20 w-20 rounded-full bg-white absolute bottom-3 right-3 shadow-md flex items-center justify-center border-2 border-[#5B259F]">
+          <PiRobotDuotone className="text-[#5B259F] h-10 w-10" />
+      </a>
     </div>
   );
 }

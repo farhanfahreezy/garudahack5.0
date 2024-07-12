@@ -54,7 +54,7 @@ const ChatInterface = () => {
             className="w-12 aspect-square rounded-lg object-cover"
           />
           <p className="text-xl font-rubik text-center mr-12 w-full">
-            Dr. Ferdinant Sinaga
+            Parent Asistance
           </p>
         </div>
       </div>
