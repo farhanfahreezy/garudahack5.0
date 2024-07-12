@@ -10,7 +10,7 @@ import  ChatBubble  from '../_components/ChatBubble'
 const ChatInterface = () => {
   const router = useRouter();
   const [messages, setMessages] = useState([{
-    text: 'Ada yang bisa saya bantu ?', sender: 'dokter'
+    text: 'Selamat datang di parent asistance, ada yang bisa di bantu', sender: 'dokter'
   }]);
   const [newMessage, setNewMessage] = useState('');
 
@@ -22,10 +22,10 @@ const ChatInterface = () => {
       setNewMessage('');
   
       setTimeout(() => {
-        if (userMessage === 'anak saya tidak nafsu makan') {
+        if (userMessage === 'anak saya tantrum, apa yang harus saya lakukan') {
           setMessages((prevMessages) => [
             ...prevMessages,
-            { text: 'bapak bisa mencoba untuk memberi suplemen', sender: 'dokter' },
+            { text: 'Usahakan tetap tenang dan jangan ikut terbawa emosi', sender: 'dokter' },
           ]);
         } else {
           setMessages((prevMessages) => [
@@ -46,15 +46,15 @@ const ChatInterface = () => {
         </button>
         <div className="grow flex justify-start items-center gap-6 ml-6">
           <Image
-            src={'/expert/sinaga.png'}
+            src={'/test/logo.png'}
             width={0}
             height={0}
-            alt={'Dr. Ferdinant Sinaga'}
+            alt={'Parent Asistance'}
             unoptimized={true}
             className="w-12 aspect-square rounded-lg object-cover"
           />
           <p className="text-xl font-rubik text-center mr-12 w-full">
-            Dr. Ferdinant Sinaga
+            Parent Asistance
           </p>
         </div>
       </div>
