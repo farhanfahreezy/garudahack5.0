@@ -30,7 +30,7 @@ export default function Register() {
 
   useEffect(() => {
     if (session) {
-      redirect("/home");
+      redirect("/test1");
     }
   }, [session]);
 
