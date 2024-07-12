@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 
 import "./globals.css";
+import { ClientProvider } from "@/utils/trpc-provider";
+import Provider from "./(utils)/provider";
+import ToasterContext from "./context/ToasterContext";
 
 const quicksand = Quicksand({ subsets: ["latin"] });
 
@@ -17,7 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={quicksand.className}>
+        <ClientProvider>
+          <Provider>
+            <ToasterContext/>
+              {children}
+          </Provider>
+        </ClientProvider>
+      </body>
     </html>
   );
 }
