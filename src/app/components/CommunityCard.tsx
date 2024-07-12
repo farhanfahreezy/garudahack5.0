@@ -16,6 +16,7 @@ import {
 } from "react-icons/bi";
 import { GoShare } from "react-icons/go";
 import { truncateNumber } from "../utils/truncateNumber";
+import { User } from "../enum/user";
 
 const CommunityCard = ({
   name,
@@ -49,7 +50,21 @@ const CommunityCard = ({
               className="aspect-square w-[40px] h-[40px]"
             />
             <div className="flex flex-col w-full">
-              <p className="font-medium text-[16px]">{name}</p>
+              <div className="font-medium text-[16px] flex flex-row gap-2">
+                <p>{name}</p>
+                {user_type !== User.CommunityMember && (
+                  <Image
+                    alt="Badge"
+                    width={20}
+                    height={20}
+                    src={
+                      user_type === User.ParentingExpert
+                        ? "/icons/badge-expert.svg"
+                        : "/icons/badge-influencer.svg"
+                    }
+                  />
+                )}
+              </div>
               <p className="font-medium text-[10px] text-gray-400">
                 {user_type}
               </p>
