@@ -23,7 +23,8 @@ export const authOptions: NextAuthOptions = {
         }
 
         if (!password) {
-          throw new Error("Password tidak boleh kosong");
+          
+          throw new Error("Sandi tidak boleh kosong");
         }
 
         const user = await prisma.user.findUnique({
