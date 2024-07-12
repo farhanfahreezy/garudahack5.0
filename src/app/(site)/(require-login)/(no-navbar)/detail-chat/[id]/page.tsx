@@ -22,7 +22,7 @@ const ChatInterface = () => {
       setNewMessage('');
   
       setTimeout(() => {
-        if (userMessage === 'anak saya tidak nafsu makan ?') {
+        if (userMessage === 'anak saya tidak nafsu makan') {
           setMessages((prevMessages) => [
             ...prevMessages,
             { text: 'bapak bisa mencoba untuk memberi suplemen', sender: 'dokter' },
