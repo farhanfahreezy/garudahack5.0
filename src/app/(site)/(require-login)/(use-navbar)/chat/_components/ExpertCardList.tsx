@@ -1,7 +1,7 @@
 import ExpertsCard from "@/app/components/ExpertsCard";
 import React from "react";
 
-const ExpertCardList = ({ expertCards }: ExperCardListProps) => {
+const ExpertCardList = ({ expertCards }: ExpertCardListProps) => {
   return (
     <div>
       {expertCards.map((card, index) => (

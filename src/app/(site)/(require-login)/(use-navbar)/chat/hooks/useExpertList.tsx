@@ -51,7 +51,7 @@ export default function useExpertList() {
     profilePictureUrl: "/expert/aubrey.jpg",
   };
 
-  const dataExpertList: ExperCardListProps = {
+  const dataExpertList: ExpertCardListProps = {
     expertCards: [
       dataExpert1,
       dataExpert2,
