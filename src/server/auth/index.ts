@@ -4,6 +4,7 @@ import { Credentials } from "@/utils/type";
 import { prisma } from "../db";
 import type { GetServerSidePropsContext } from "next";
 import { compareHash } from "@/utils/auth";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -14,7 +15,7 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       type: "credentials",
       credentials: {},
-      authorize: async (credentials) => {
+      authorize: async (credentials,req): Promise<any> =>{
         const { email, password } = credentials as Credentials;
 
         if (!email) {
@@ -22,7 +23,8 @@ export const authOptions: NextAuthOptions = {
         }
 
         if (!password) {
-          throw new Error("Password tidak boleh kosong");
+          
+          throw new Error("Sandi tidak boleh kosong");
         }
 
         const user = await prisma.user.findUnique({
@@ -46,6 +48,10 @@ export const authOptions: NextAuthOptions = {
         return user;
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? ''
+    })
   ],
   pages: {
     signIn: "/login",

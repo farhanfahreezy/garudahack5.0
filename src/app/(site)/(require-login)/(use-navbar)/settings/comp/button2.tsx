@@ -8,12 +8,13 @@ interface Button2Props {
   subtitle: string;
   href: string;
   icon2: React.ReactNode;
+  onClick: ()=>{}
 }
 
-const Button2: React.FC<Button2Props> = ({ icon1, title, subtitle, href, icon2 }) => {
+const Button2: React.FC<Button2Props> = ({ icon1, title, subtitle, icon2,onClick }) => {
   return (
-    <a
-      href={href}
+    <button
+      onClick={onClick}
       className="flex items-center text-decoration-none p-2.5 mx-1"
     >
       <div className="mr-3 rounded-lg bg-[#FF6767] p-3 flex items-center justify-center">
@@ -30,7 +31,7 @@ const Button2: React.FC<Button2Props> = ({ icon1, title, subtitle, href, icon2 }
       <div className="ml-3">
         {React.cloneElement(icon2 as React.ReactElement, { className: 'text-lg' })}
       </div>
-    </a>
+    </button>
   );
 };
 
