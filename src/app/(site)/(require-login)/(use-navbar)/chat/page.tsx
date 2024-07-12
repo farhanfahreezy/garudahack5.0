@@ -4,11 +4,14 @@ import { useEffect, useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import ExpertCardList from "./_components/ExpertCardList";
 import useExpertList from "./hooks/useExpertList";
+import useExpertHistoryList from "./hooks/useExpertHistoryList";
+import ExpertHistoryCardList from "./_components/ExpertHistoryCardList";
 
 export default function Home() {
   const [currentTab, setcurrentTab] = useState("experts");
 
   const { expertCards } = useExpertList();
+  const { expertHistoryCards } = useExpertHistoryList();
 
   return (
     <div className="flex flex-col items-center justify-start h-full w-full">
@@ -62,7 +65,7 @@ export default function Home() {
           </>
         ) : (
           <>
-            <div>kosong</div>
+            <ExpertHistoryCardList expertHistoryCards={expertHistoryCards} />
           </>
         )}
       </div>

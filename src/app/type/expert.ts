@@ -7,6 +7,19 @@ interface ExpertCardProps {
   profilePictureUrl: string;
 }
 
-interface ExperCardListProps {
+interface ExpertCardListProps {
   expertCards: ExpertCardProps[];
+}
+
+interface ExpertHistoryCardProps {
+  name: string;
+  expertise: string;
+  consultDate: Date;
+  status: boolean;
+  url: string;
+  profilePictureUrl: string;
+}
+
+interface ExpertHistoryCardListProps {
+  expertHistoryCards: ExpertHistoryCardProps[];
 }
