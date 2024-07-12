@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import LowerProps from "./comp/lower";
 import UpperProps from "./comp/upper";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 
 export default function Home() {
   const session = useSession();
@@ -27,6 +28,9 @@ export default function Home() {
           role="Advocate Contributor"
           reputationScore="2235"
         />
+        <div className="w-full flex justify-center items-center mt-6">
+            <Image src={'/icons/progress.svg'}  alt='progress' width={350} height={150} />
+        </div>
         <h2 className="mt-4 mx-10 text-center">
           With just 27 more Upvotes you can become an Influencer Contributor
         </h2>
