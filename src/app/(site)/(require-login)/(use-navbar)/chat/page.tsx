@@ -1,98 +1,70 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { LuSearch } from "react-icons/lu";
+import ExpertCardList from "./_components/ExpertCardList";
+import useExpertList from "./hooks/useExpertList";
 
 export default function Home() {
   const [currentTab, setcurrentTab] = useState("experts");
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollTop = window.scrollY;
-
-      if (currentScrollTop > lastScrollTop) {
-        // Scroll down
-        setIsVisible(false);
-      } else {
-        // Scroll up
-        setIsVisible(true);
-      }
-
-      setLastScrollTop(currentScrollTop);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollTop]);
+  const { expertCards } = useExpertList();
 
   return (
-    <div className="flex flex-col items-center justify-center w-full relative">
-      <div
-        className={` ${
-          isVisible ? "translate-y-0" : "hidden"
-        } text-[24px] font-rubik font-medium w-full py-2 text-center shadow-sm sticky`}
-      >
-        Chat
+    <div className="flex flex-col items-center justify-start h-full w-full">
+      {/* NAVIGATION PART */}
+      <div className="flex flex-col w-full">
+        <div
+          className={`text-[24px] font-rubik font-medium w-full py-3 text-center shadow-md`}
+        >
+          Chat
+        </div>
+        <div className="w-full font-bold shadow-sm">
+          <div className="flex flex-row py-2 w-full justify-evenly">
+            <button
+              onClick={() => setcurrentTab("experts")}
+              className={` ${
+                currentTab == "experts"
+                  ? "text-darkPurple1 underline"
+                  : "text-black"
+              }`}
+            >
+              Experts
+            </button>
+            <button
+              onClick={() => setcurrentTab("history")}
+              className={` ${
+                currentTab == "history"
+                  ? "text-darkPurple1 underline"
+                  : "text-black"
+              }`}
+            >
+              History
+            </button>
+          </div>
+        </div>
       </div>
-      <div className="w-full">
-        <div className="flex flex-row py-2 w-full justify-evenly">
-          <button onClick={() => setcurrentTab("experts")}>Experts</button>
-          <button>History</button>
-        </div>
-        <div className="h-full overflow-y-scroll">
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-          <p>lorem 100</p>
-        </div>
+
+      {/* CONTENT */}
+      <div className="h-full overflow-y-scroll w-full px-4 pb-4">
+        {currentTab == "experts" ? (
+          <>
+            <div className="bg-gray-200 p-2 rounded-md flex flex-row items-center justify-center gap-2 mb-2 mt-4">
+              <button className="active:scale-95">
+                <LuSearch size={24} />
+              </button>
+              <input
+                className="w-full bg-transparent text-[16px] outline-none"
+                placeholder="Find Your Expert"
+              />
+            </div>
+            <ExpertCardList expertCards={expertCards} />
+          </>
+        ) : (
+          <>
+            <div>kosong</div>
+          </>
+        )}
       </div>
     </div>
   );
