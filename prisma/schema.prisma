@@ -11,6 +11,79 @@ generator client {
 datasource db {
   provider = "postgresql"
   url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  // directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
   // shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
+}
+
+model User {
+  id             Int       @id @default(autoincrement())
+  email          String    @unique
+  name           String
+  password       String
+  imageURL       String?
+  totalUpvote    Int       @default(0)
+  totalDownvote  Int       @default(0)
+  isVerified     Boolean   @default(false)
+  country        String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  expertise      String?
+  pricePerSession Float?
+  posts          Post[]
+  messages       Message[]
+  chatParticipants ChatParticipants[]
+  settings       Settings?
+}
+
+model Post {
+  id                    Int       @id @default(autoincrement())
+  title                 String
+  content               String
+  tag                   String?
+  category              String?
+  upvote                Int       @default(0)
+  downvote              Int       @default(0)
+  userId                Int
+  imageURL              String?
+  replyingToId          Int?
+  isAnsweredByProfessional Boolean @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+  user                  User      @relation(fields: [userId], references: [id])
+}
+
+model Chat {
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now())
+  messages       Message[]
+  participants   ChatParticipants[]
+}
+
+model Message {
+  id             Int       @id @default(autoincrement())
+  chatId         Int
+  userId         Int
+  content        String
+  createdAt      DateTime  @default(now())
+  chat           Chat      @relation(fields: [chatId], references: [id])
+  user           User      @relation(fields: [userId], references: [id])
+}
+
+model ChatParticipants {
+  chatId         Int
+  userId         Int
+  chat           Chat      @relation(fields: [chatId], references: [id])
+  user           User      @relation(fields: [userId], references: [id])
+  @@id([chatId, userId])
+}
+
+model Settings {
+  id                Int      @id @default(autoincrement())
+  notification      Boolean  @default(true)
+  notificationSound Boolean  @default(true)
+  voiceAssistance   Boolean  @default(false)
+  colorBlind        Boolean  @default(false)
+  fontSize          Int      @default(14)
+  userId            Int      @unique
+  user              User     @relation(fields: [userId], references: [id])
 }
