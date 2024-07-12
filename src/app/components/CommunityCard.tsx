@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HomeCardCommunityProps } from "../type/homeCommunity";
 import Image from "next/image";
 import { getTimePassed } from "../utils/subtractdate";
@@ -23,6 +23,7 @@ const CommunityCard = ({
   profilePictureUrl,
   postImageUrl,
   title,
+  content,
   url,
   totalUpvote,
   createdDate,
@@ -47,7 +48,7 @@ const CommunityCard = ({
               src={profilePictureUrl}
               width={40}
               height={40}
-              className="aspect-square w-[40px] h-[40px]"
+              className="aspect-square w-[40px] h-[40px] rounded-full"
             />
             <div className="flex flex-col w-full">
               <div className="font-medium text-[16px] flex flex-row gap-2">
@@ -91,6 +92,11 @@ const CommunityCard = ({
             objectFit="cover"
             className="w-full h-auto rounded-xl"
           />
+        )}
+
+        {/* CONTENT, IF ANY */}
+        {content && (
+          <p className="text-[13px] font-medium text-gray-500">{content}</p>
         )}
 
         {/* CATEGORY AND TAGS */}
