@@ -124,7 +124,9 @@ export default function Home() {
           </div>
           <div className="w-full text-center text-[12px]">or with</div>
           <div className="flex flex-row items-center justify-center gap-5">
-            <FcGoogle size={40} />
+            <button onClick={() => signIn('google')}>
+              <FcGoogle size={40} />
+            </button>
             <BsFacebook size={35} color={"#3b5998"} />
           </div>
         </div>

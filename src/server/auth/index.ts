@@ -4,6 +4,7 @@ import { Credentials } from "@/utils/type";
 import { prisma } from "../db";
 import type { GetServerSidePropsContext } from "next";
 import { compareHash } from "@/utils/auth";
+import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -46,6 +47,10 @@ export const authOptions: NextAuthOptions = {
         return user;
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? ''
+    })
   ],
   pages: {
     signIn: "/login",
