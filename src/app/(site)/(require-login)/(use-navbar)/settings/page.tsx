@@ -9,6 +9,7 @@ import {
   SlBell,
   SlArrowUpCircle,
 } from "react-icons/sl";
+import Button2 from "./comp/button2";
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
       </div>
       <div className="p-2 border border-gray-300 rounded-2xl shadow-md mx-5 my-5">
         <Button
-          icon1={<SlUser className="text-white" />}
+          icon1={<SlUser className="text-white " />}
           title="Profile"
           subtitle="Manage your personal information"
           href="/profile"
@@ -55,9 +56,9 @@ export default function Home() {
           icon2={<SlArrowRight />}
         />
       </div>
-      <div className="p-2 border border-gray-300 rounded-2xl shadow-md mx-5 my-5 bg-red-300">
-        <Button
-          icon1={<FaSignOutAlt className="text-white" />}
+      <div className="p-2 border border-gray-300 rounded-2xl shadow-md mx-5 my-5 bg-[#FAEFEF]">
+        <Button2
+          icon1={<FaSignOutAlt className="" />}
           title="Logout"
           subtitle=""
           href="/profile"
