@@ -48,7 +48,7 @@ const Navbar = () => {
           width={0}
           height={0}
           src={"/icons/add.svg"}
-          className="w-[47px] aspect-square drop-shadow-md active:scale-95 transition-all"
+          className="w-[47px] aspect-square drop-shadow-xl active:scale-95 transition-all"
         />
       </Link>
 
