@@ -27,6 +27,11 @@ const config: Config = {
         "up-lg":
           "0 -10px 15px -3px rgba(0, 0, 0, 0.05), 0 -4px 6px -2px rgba(0, 0, 0, 0.05)",
       },
+      gridTemplateColumns: {
+        // Define a custom grid template column
+        "auto-fill-100": "repeat(auto-fill, minmax(100px, 1fr))",
+        "auto-fill-150": "repeat(auto-fill, minmax(150px, 1fr))",
+      },
     },
   },
   plugins: [],
