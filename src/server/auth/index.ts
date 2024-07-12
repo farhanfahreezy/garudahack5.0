@@ -15,7 +15,7 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       type: "credentials",
       credentials: {},
-      authorize: async (credentials) => {
+      authorize: async (credentials,req): Promise<any> =>{
         const { email, password } = credentials as Credentials;
 
         if (!email) {
